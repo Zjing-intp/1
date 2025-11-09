@@ -1,0 +1,89 @@
+#include "swap.h"//函数分件
+#include <string>
+using namespace std;
+
+int swap(int num1, int num2)//无分号
+{
+	return num1 > num2 ? num1 : num2;
+}
+
+int main() {
+	//1.数组
+	/*int a[] = {1,2,3,4,5,6,};//数组
+	cout << a[0] << endl;
+	double b[5] = { 1.3,10.7 };
+	cout << b[1], b[3];
+	cout << (int)a << endl;//取址
+	cout << (int)&a[0];*/
+
+	//2.冒泡排序(嵌套循环）
+	/*int a[5] = { 6,3,7,1,9 };
+	int b = 0;
+	for (int m = 0; m < 5; m++) {
+		cout << a[m] << " " ;
+		cout << endl;
+	}
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j <5-i-1; j++) {
+			if (a[j] > a[j + 1]) {
+				b = a[j + 1];
+				a[j + 1] = a[j];
+				a[j] = b;
+			}
+		}
+	}
+	for (int m = 0; m < 5; m++) {
+		cout << a[m] << " " ;
+	}*/
+	//3.考试成绩统计
+	string name[3] = { "竺景","织锦","醉锦"};//中间,号隔开
+	int score[3][2] = { {100,99},{97,98},{94,96} };
+	for (int i = 0; i <= 2; i++) {
+		int total = 0;//放在第一个循环里面，确保为每个人的总分（即计算第二个人是总分清零）
+		for (int j = 0; j <= 1; j++) {
+			cout << score[i][j] << "  ";
+			total = score[i][j]+total;
+		}
+		cout << name[i] << "总分：" << total << endl;
+		cout << endl;
+			}
+	
+	//4.自定义函数
+	//int a = 3;
+	//int b = 4;
+	//int c = swap(a, b);//引用函数
+	//cout << c;
+
+	//5.指针的定义和使用
+	//int a = 10;
+	//int* p;//构建一个指针
+	//p = &a;//取址
+	//cout << &a << endl;
+	//cout << "a=" << *p << endl;
+	//*p = 20;//可以通过指针修改数据内容，为什么不直接修改呢？（建立地址关联，实现复杂结构）
+	//cout << "a=" << *p;
+
+	//6.const修饰指针
+	//①
+	//int a = 10;
+	//int b = 20;
+	//const int* p = &a;
+	// p = &b;//指针地址可以改
+	//cout << *p;
+	////②
+	//int* const c = &b;//值可以修改
+	//*c = 12;
+	//cout << *c;
+
+	//7.指针和数组
+	//int a[3] = { 1,3,5 };
+	//cout << a[0] << endl;
+	//int* p = a;//取址为a的首位
+	//for (int i = 1; i < 4; i++) {
+	//	cout << *p << endl;
+	//	p++;//将地址后移
+	//}
+
+	return 0;
+} 
+
