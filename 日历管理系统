@@ -1,0 +1,150 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+	int a = 1;
+	int year = 0;
+	int month = 0;
+	int day = 0;
+	cout << "==智能日历系统==\n";
+	while (1) {
+		cout << "请输入年份（1900-2100）:";
+		cin >> year;
+		if (year>= 1900&&year<= 2100) {
+			break;
+		}
+		else cout<<" 日期不合法，重新输入";//判断日期是否合法
+	}
+	while (1) {
+		cout << "请输入月份（1-12）：";
+		cin >> month;
+		if (month >= 1 && month <= 12) {
+			break;
+		}
+		else cout << " 日期不合法，重新输入";
+	}
+	while(a){
+		cout << "请输入日期:";
+		cin >> day;
+		//算闰年，判断日期
+		if (year % 4 == 0) {
+
+			if (month == 2) {
+				if (day > 29 || day < 0) {
+					cout << " 日期不合法，重新输入";
+					continue;
+				}
+				else 
+				break;
+			}
+			cout << year << "年" << month << "月" << day << "日" << endl;
+			cout << "是闰年" << endl;
+		}
+		else {
+			if (month == 2) {
+				if (day > 28 || day < 0) {
+					cout << "日期不合法，重新输入";
+					continue;
+				}
+				else
+				break;
+			}
+			cout << year << "年" << month << "月" << day << "日" << endl;
+			cout << "不是闰年" << endl;
+		}
+		switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			if (day > 31 || day < 0) {
+				cout << " 日期不合法，重新输入" << endl;
+				continue;
+			}
+			else a = 0;
+				break;
+		
+		default:
+			break;
+
+		}
+		switch (month) {
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			if (day > 30 || day < 0) {
+				cout << " 日期不合法，重新输入";
+				continue;
+			}
+			else a = 0;
+				break;
+		}
+		string constellation;//判断星座
+		switch (month) {
+		case 1:
+			constellation = (day <= 19) ? "摩羯座" : "水瓶座";//一月为摩羯或水瓶
+			break;
+		case 2:
+			constellation = (day <= 18) ? "水瓶座" : "双鱼座";
+			break;
+		case 3:
+			constellation = (day <= 20) ? "双鱼座" : "白羊座";
+			break;
+		case 4:
+			constellation = (day <= 19) ? "白羊座" : "金牛座";
+			break;
+		case 5:
+			constellation = (day <= 20) ? "金牛座" : "双子座";
+			break;
+		case 6:
+			constellation = (day <= 21) ? "双子座" : "巨蟹座";
+			break;
+		case 7:
+			constellation = (day <= 22) ? "巨蟹座" : "狮子座";
+			break;
+		case 8:
+			constellation = (day <= 22) ? "狮子座" : "处女座";
+			break;
+		case 9:
+			constellation = (day <= 22) ? "处女座" : "天秤座";
+			break;
+		case 10:
+			constellation = (day <= 23) ? "天秤座" : "天蝎座";
+			break;
+		case 11:
+			constellation = (day <= 22) ? "天蝎座" : "射手座";
+			break;
+		case 12:
+			constellation = (day <= 21) ? "射手座" : "摩羯座";
+			break;
+		}
+		cout << "你的星座是：" << constellation << endl;
+        //检测节假日
+		if (month == 1 && day == 1) {
+			cout << "为元旦";
+			break;
+		}
+		if (month == 2 && day == 7) {
+			cout << "为情人节";
+			break;
+		}
+		if (month == 10 && day == 1) {
+			cout << "为国庆节";
+			break;
+		}
+		if (month == 12 && day == 25) {
+			cout << "为圣诞节";
+			break;
+		}
+		else {
+			cout << "不为节假日";
+			break;
+		}
+	}
+	
+	return 0;
+}
