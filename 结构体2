@@ -1,0 +1,40 @@
+#include"1.h"
+using namespace std;
+struct hero {
+	string name;
+	int age;
+	string sex;
+};//定义结构体
+
+void bubble(struct hero H[],int len) {
+	for (int i = 0; i < len-1; i++) {
+		for (int j = 0; j < len - i - 1; j++) {
+			if (H[j].age > H[j + 1].age) {//将其连为一个整体
+				struct hero a = H[j + 1];//冒泡排序
+				H[j + 1] = H[j];//整个结构体排序
+				H[j] = a;
+			}
+		}
+	}
+}
+void print(struct hero H[],int len) {
+	for (int i = 0; i < len; i++) {
+		cout << H[i].name << H[i].age << H[i].sex << endl;
+	}
+}
+int main()
+{//定义数组
+	struct hero H[4] = {
+		{"刘备",23,"男"},
+		{ "关羽",22,"男" },
+		{ "张飞",20,"男" },
+		{ "貂蝉",19,"女" },
+	};
+	int len = sizeof(H) / sizeof(H[0]);
+	bubble(H,len);
+	
+	print(H,len);
+	
+
+		return 0;
+}
